@@ -1,0 +1,26 @@
+{
+  "name": "zaki-ramadhan-cv-website",
+  "version": "1.0.0",
+  "description": "Ini adalah website portfolio pribadi untuk Zaki Ramadhan, seorang Web Developer Intern. Website ini dibuat dengan fokus pada desain yang bersih, performa, dan pengalaman pengguna yang profesional.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaki-ramadhan/my-cv-web-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/zaki-ramadhan/my-cv-web-project/issues"
+  },
+  "homepage": "https://github.com/zaki-ramadhan/my-cv-web-project#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.18"
+  }
+}
