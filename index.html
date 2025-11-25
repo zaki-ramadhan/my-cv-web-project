@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zaki Ramadhan - Web Developer Intern</title>
+  <meta name="description"
+    content="Portfolio website Zaki Ramadhan, Web Developer Intern yang berfokus pada pengembangan website modern menggunakan HTML, CSS, Tailwind CSS, dan JavaScript.">
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Zaki Ramadhan - Web Developer Intern">
+  <meta property="og:description"
+    content="Portfolio website Zaki Ramadhan, Web Developer Intern yang berfokus pada pengembangan website modern menggunakan HTML, CSS, Tailwind CSS, dan JavaScript.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://zaki-ramadhan-portfolio.replit.app">
+  <meta property="og:image"
+    content="https://zaki-ramadhan-portfolio.replit.app/assets/zaki_ramadhan_professional_headshot.png">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Zaki Ramadhan - Web Developer Intern">
+  <meta name="twitter:description"
+    content="Portfolio website Zaki Ramadhan, Web Developer Intern yang berfokus pada pengembangan website modern menggunakan HTML, CSS, Tailwind CSS, dan JavaScript.">
+  <meta name="twitter:image"
+    content="https://zaki-ramadhan-portfolio.replit.app/assets/zaki_ramadhan_professional_headshot.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2b7fff',
+            secondary: '#f3f4f6',
+            accent: '#ff4d73'
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .gradient-bg {
+      background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 50%, #ffffff 100%);
+    }
+
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .profile-glow {
+      box-shadow: 0 0 60px rgba(43, 127, 255, 0.3);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s ease-out;
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased bg-white text-gray-900">
+
+  <!-- Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#hero" class="text-xl font-bold text-gray-900 hover:text-primary transition-colors"
+          data-testid="button-logo">
+          Zaki Ramadhan
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-1">
+          <a href="#hero" class="px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-100 rounded-lg transition-all"
+            data-testid="button-nav-home">Home</a>
+          <a href="#about"
+            class="px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-100 rounded-lg transition-all"
+            data-testid="button-nav-about">About</a>
+          <a href="#projects"
+            class="px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-100 rounded-lg transition-all"
+            data-testid="button-nav-projects">Projects</a>
+          <a href="#contact"
+            class="px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-100 rounded-lg transition-all"
+            data-testid="button-nav-contact">Contact</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-700 hover:bg-gray-100 rounded-lg transition-all"
+          aria-expanded="false" aria-label="Toggle mobile menu" data-testid="button-mobile-menu">
+          <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <nav id="mobile-menu" class="hidden md:hidden pb-4 border-t border-gray-200 mt-2">
+        <div class="flex flex-col space-y-2 pt-4">
+          <a href="#hero" class="px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-100 rounded-lg transition-all"
+            data-testid="button-mobile-nav-home">Home</a>
+          <a href="#about"
+            class="px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-100 rounded-lg transition-all"
+            data-testid="button-mobile-nav-about">About</a>
+          <a href="#projects"
+            class="px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-100 rounded-lg transition-all"
+            data-testid="button-mobile-nav-projects">Projects</a>
+          <a href="#contact"
+            class="px-4 py-2 text-gray-700 hover:text-primary hover:bg-gray-100 rounded-lg transition-all"
+            data-testid="button-mobile-nav-contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section id="hero" class="min-h-screen flex items-center justify-center pt-20 px-4 sm:px-6 lg:px-8 gradient-bg">
+      <div class="max-w-7xl w-full mx-auto">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-12 animate-fade-in-up">
+          <div class="flex-1 text-center md:text-left space-y-6">
+            <span class="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium"
+              data-testid="badge-role">
+              Web Developer Intern
+            </span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
+              data-testid="text-hero-name">
+              Hi, Saya
+              <span class="text-primary">Zaki Ramadhan</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-600 max-w-2xl" data-testid="text-hero-tagline">
+              Passionate tentang menciptakan website modern yang responsif dan user-friendly menggunakan teknologi web
+              terkini
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <a href="#projects"
+                class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 hover:shadow-lg transition-all"
+                data-testid="button-view-projects">
+                Lihat Proyek Saya
+                <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3">
+                  </path>
+                </svg>
+              </a>
+              <a href="#contact"
+                class="inline-flex items-center justify-center px-6 py-3 bg-white text-primary border-2 border-primary font-medium rounded-lg hover:bg-primary hover:text-white transition-all"
+                data-testid="button-contact-me">
+                Hubungi Saya
+              </a>
+            </div>
+          </div>
+
+          <div class="flex-shrink-0">
+            <img src="/assets/zaki_ramadhan_professional_headshot.png" alt="Zaki Ramadhan"
+              class="rounded-full w-64 h-64 sm:w-80 sm:h-80 object-cover border-4 border-white shadow-2xl profile-glow"
+              data-testid="img-profile">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" data-testid="text-about-title">Tentang Saya</h2>
+          <div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+          <div class="space-y-4">
+            <p class="text-gray-600 leading-relaxed" data-testid="text-about-description">
+              Saya adalah seorang Web Developer Intern yang antusias dan bersemangat untuk terus belajar teknologi web
+              terkini. Dengan latar belakang dalam pengembangan web, saya fokus pada pembuatan website yang tidak hanya
+              menarik secara visual, tetapi juga fungsional dan mudah digunakan.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              Pengalaman saya mencakup pengembangan frontend menggunakan HTML5, CSS3, dan JavaScript modern. Saya juga
+              terbiasa bekerja dengan framework seperti React dan styling dengan Tailwind CSS untuk menciptakan user
+              interface yang responsif dan elegan.
+            </p>
+            <p class="text-gray-600 leading-relaxed">
+              Saya percaya bahwa detail yang baik membuat perbedaan besar dalam pengalaman pengguna. Oleh karena itu,
+              saya selalu berusaha untuk memberikan perhatian khusus pada setiap aspek dari proyek yang saya kerjakan,
+              dari desain hingga implementasi teknis.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-6" data-testid="text-skills-title">Keahlian Teknis</h3>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="flex items-center gap-2 p-3 bg-secondary rounded-lg hover:shadow-md transition-all"
+                data-testid="skill-0">
+                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="text-gray-900 font-medium text-sm">HTML5</span>
+              </div>
+              <div class="flex items-center gap-2 p-3 bg-secondary rounded-lg hover:shadow-md transition-all"
+                data-testid="skill-1">
+                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="text-gray-900 font-medium text-sm">CSS3</span>
+              </div>
+              <div class="flex items-center gap-2 p-3 bg-secondary rounded-lg hover:shadow-md transition-all"
+                data-testid="skill-2">
+                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="text-gray-900 font-medium text-sm">JavaScript</span>
+              </div>
+              <div class="flex items-center gap-2 p-3 bg-secondary rounded-lg hover:shadow-md transition-all"
+                data-testid="skill-3">
+                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="text-gray-900 font-medium text-sm">Tailwind CSS</span>
+              </div>
+              <div class="flex items-center gap-2 p-3 bg-secondary rounded-lg hover:shadow-md transition-all"
+                data-testid="skill-4">
+                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="text-gray-900 font-medium text-sm">React</span>
+              </div>
+              <div class="flex items-center gap-2 p-3 bg-secondary rounded-lg hover:shadow-md transition-all"
+                data-testid="skill-5">
+                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="text-gray-900 font-medium text-sm">TypeScript</span>
+              </div>
+              <div class="flex items-center gap-2 p-3 bg-secondary rounded-lg hover:shadow-md transition-all"
+                data-testid="skill-6">
+                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="text-gray-900 font-medium text-sm">Git & GitHub</span>
+              </div>
+              <div class="flex items-center gap-2 p-3 bg-secondary rounded-lg hover:shadow-md transition-all"
+                data-testid="skill-7">
+                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="text-gray-900 font-medium text-sm">Responsive Design</span>
+              </div>
+              <div class="flex items-center gap-2 p-3 bg-secondary rounded-lg hover:shadow-md transition-all"
+                data-testid="skill-8">
+                <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="text-gray-900 font-medium text-sm">UI/UX Principles</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/50">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" data-testid="text-projects-title">Proyek Saya
+          </h2>
+          <div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+          <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+            Berikut adalah beberapa proyek yang telah saya kerjakan selama masa internship
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover" data-testid="card-project-1">
+            <div class="relative overflow-hidden aspect-video">
+              <img src="./assets/e-commerce_website_project_mockup.png" alt="E-Commerce Platform"
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                data-testid="img-project-1">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2" data-testid="text-project-title-1">E-Commerce Platform
+              </h3>
+              <p class="text-gray-600 mb-4" data-testid="text-project-description-1">
+                Platform e-commerce modern dengan fitur keranjang belanja, manajemen produk, dan sistem checkout yang
+                responsif. Dibangun dengan React dan Tailwind CSS.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
+                  data-testid="badge-project-tag-1-0">React</span>
+                <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
+                  data-testid="badge-project-tag-1-1">Tailwind</span>
+                <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
+                  data-testid="badge-project-tag-1-2">JavaScript</span>
+              </div>
+              <a href="https://github.com/zaki-ramadhan" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center justify-center w-full px-4 py-2 bg-white border-2 border-gray-300 text-gray-900 font-medium rounded-lg hover:bg-gray-50 hover:border-primary transition-all"
+                data-testid="button-view-project-1">
+                Lihat Detail
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover" data-testid="card-project-2">
+            <div class="relative overflow-hidden aspect-video">
+              <img src="./assets/task_manager_app_project.png" alt="Task Management App"
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                data-testid="img-project-2">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2" data-testid="text-project-title-2">Task Management App
+              </h3>
+              <p class="text-gray-600 mb-4" data-testid="text-project-description-2">
+                Aplikasi manajemen tugas dengan fitur drag-and-drop, kategori prioritas, dan filter pencarian. Interface
+                yang clean dan user-friendly.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
+                  data-testid="badge-project-tag-2-0">React</span>
+                <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
+                  data-testid="badge-project-tag-2-1">TypeScript</span>
+                <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
+                  data-testid="badge-project-tag-2-2">CSS</span>
+              </div>
+              <a href="https://github.com/zaki-ramadhan" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center justify-center w-full px-4 py-2 bg-white border-2 border-gray-300 text-gray-900 font-medium rounded-lg hover:bg-gray-50 hover:border-primary transition-all"
+                data-testid="button-view-project-2">
+                Lihat Detail
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover" data-testid="card-project-3">
+            <div class="relative overflow-hidden aspect-video">
+              <img src="./assets/portfolio_website_project_mockup.png" alt="Portfolio Website"
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                data-testid="img-project-3">
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-2" data-testid="text-project-title-3">Portfolio Website</h3>
+              <p class="text-gray-600 mb-4" data-testid="text-project-description-3">
+                Website portfolio pribadi yang menampilkan proyek, keahlian, dan informasi kontak. Desain modern dan
+                fully responsive untuk semua perangkat.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
+                  data-testid="badge-project-tag-3-0">HTML</span>
+                <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
+                  data-testid="badge-project-tag-3-1">Tailwind</span>
+                <span class="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full"
+                  data-testid="badge-project-tag-3-2">Responsive</span>
+              </div>
+              <a href="https://github.com/zaki-ramadhan" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center justify-center w-full px-4 py-2 bg-white border-2 border-gray-300 text-gray-900 font-medium rounded-lg hover:bg-gray-50 hover:border-primary transition-all"
+                data-testid="button-view-project-3">
+                Lihat Detail
+                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4" data-testid="text-contact-title">Hubungi Saya
+          </h2>
+          <div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+          <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+            Tertarik untuk berkolaborasi atau punya pertanyaan? Jangan ragu untuk menghubungi saya!
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <!-- Contact Form -->
+          <div class="bg-white border-2 border-gray-200 rounded-lg p-6 shadow-sm">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Kirim Pesan</h3>
+            <p class="text-gray-600 mb-6">Isi form di bawah ini untuk menghubungi saya</p>
+
+            <form id="contact-form" class="space-y-4">
+              <div>
+                <label for="name" class="block text-sm font-medium text-gray-900 mb-2">Nama</label>
+                <input type="text" id="name" name="name"
+                  class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none transition-colors"
+                  placeholder="Nama lengkap Anda" data-testid="input-contact-name">
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-900 mb-2">Email</label>
+                <input type="email" id="email" name="email"
+                  class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none transition-colors"
+                  placeholder="email@example.com" data-testid="input-contact-email">
+              </div>
+              <div>
+                <label for="message" class="block text-sm font-medium text-gray-900 mb-2">Pesan</label>
+                <textarea id="message" name="message" rows="5"
+                  class="w-full px-4 py-2 border-2 border-gray-300 rounded-lg focus:border-primary focus:outline-none transition-colors resize-none"
+                  placeholder="Tulis pesan Anda di sini..." data-testid="input-contact-message"></textarea>
+              </div>
+              <button type="submit"
+                class="w-full inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary/90 hover:shadow-lg transition-all"
+                data-testid="button-submit-contact">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                  </path>
+                </svg>
+                Kirim Pesan
+              </button>
+            </form>
+          </div>
+
+          <!-- Social Links -->
+          <div class="space-y-8">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-6" data-testid="text-social-title">Temukan Saya Di</h3>
+              <div class="space-y-4">
+                <a href="https://github.com/zaki-ramadhan" target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-4 p-4 bg-secondary/50 rounded-lg hover:shadow-md transition-all group"
+                  data-testid="link-github">
+                  <div class="p-3 bg-white rounded-lg">
+                    <svg class="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                      <path fill-rule="evenodd"
+                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                        clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <p class="font-medium text-gray-900">GitHub</p>
+                    <p class="text-sm text-gray-600">@zaki-ramadhan</p>
+                  </div>
+                  <svg class="w-5 h-5 text-gray-600 group-hover:text-primary transition-colors" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </a>
+
+                <a href="https://linkedin.com/in/zaki-ramadhan" target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-4 p-4 bg-secondary/50 rounded-lg hover:shadow-md transition-all group"
+                  data-testid="link-linkedin">
+                  <div class="p-3 bg-white rounded-lg">
+                    <svg class="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z">
+                      </path>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <p class="font-medium text-gray-900">LinkedIn</p>
+                    <p class="text-sm text-gray-600">Zaki Ramadhan</p>
+                  </div>
+                  <svg class="w-5 h-5 text-gray-600 group-hover:text-primary transition-colors" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </a>
+
+                <a href="https://instagram.com/zqramadhan_" target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-4 p-4 bg-secondary/50 rounded-lg hover:shadow-md transition-all group"
+                  data-testid="link-instagram">
+                  <div class="p-3 bg-white rounded-lg">
+                    <svg class="w-6 h-6 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+                      </path>
+                    </svg>
+                  </div>
+                  <div class="flex-1">
+                    <p class="font-medium text-gray-900">Instagram</p>
+                    <p class="text-sm text-gray-600">@zqramadhan_</p>
+                  </div>
+                  <svg class="w-5 h-5 text-gray-600 group-hover:text-primary transition-colors" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-primary/5 border-2 border-primary/20 rounded-lg p-6">
+              <p class="text-gray-900 font-medium mb-2">Ingin bekerja sama?</p>
+              <p class="text-gray-600 text-sm">
+                Saya terbuka untuk peluang internship, proyek freelance, atau kolaborasi menarik lainnya. Mari kita
+                ciptakan sesuatu yang luar biasa bersama!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-secondary/50 border-t border-gray-200 py-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-gray-600 text-sm text-center md:text-left" data-testid="text-footer-copyright">
+          © 2025 oleh Zaki Ramadhan. All rights reserved.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/zaki-ramadhan" target="_blank" rel="noopener noreferrer"
+            class="p-2 text-gray-600 hover:text-primary transition-colors" data-testid="link-footer-github">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd"
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </a>
+          <a href="https://linkedin.com/in/zaki-ramadhan" target="_blank" rel="noopener noreferrer"
+            class="p-2 text-gray-600 hover:text-primary transition-colors" data-testid="link-footer-linkedin">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z">
+              </path>
+            </svg>
+          </a>
+          <a href="https://instagram.com/zqramadhan_" target="_blank" rel="noopener noreferrer"
+            class="p-2 text-gray-600 hover:text-primary transition-colors" data-testid="link-footer-instagram">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+              </path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Mobile Menu and Form -->
+  <script>
+    // Mobile Menu Toggle with proper state management
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    mobileMenuBtn.addEventListener('click', function () {
+      const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+
+      // Toggle menu visibility
+      mobileMenu.classList.toggle('hidden');
+
+      // Update ARIA state
+      mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
+
+      // Toggle icons
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking on a link
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', function () {
+        mobileMenu.classList.add('hidden');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        menuIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
+
+    // Contact Form Submission with validation
+    const contactForm = document.getElementById('contact-form');
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
+
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Clear previous error states
+      [nameInput, emailInput, messageInput].forEach(input => {
+        input.classList.remove('border-red-500');
+      });
+
+      let isValid = true;
+      let errorMessage = '';
+
+      // Validate name
+      if (!nameInput.value.trim()) {
+        nameInput.classList.add('border-red-500');
+        errorMessage += 'Nama wajib diisi.\n';
+        isValid = false;
+      }
+
+      // Validate email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput.value.trim()) {
+        emailInput.classList.add('border-red-500');
+        errorMessage += 'Email wajib diisi.\n';
+        isValid = false;
+      } else if (!emailRegex.test(emailInput.value)) {
+        emailInput.classList.add('border-red-500');
+        errorMessage += 'Format email tidak valid.\n';
+        isValid = false;
+      }
+
+      // Validate message
+      if (!messageInput.value.trim()) {
+        messageInput.classList.add('border-red-500');
+        errorMessage += 'Pesan wajib diisi.\n';
+        isValid = false;
+      }
+
+      // Show result
+      if (isValid) {
+        alert('✅ Terima kasih! Pesan Anda telah dikirim.\n\nIni adalah demo form. Di aplikasi production, pesan akan dikirim ke server.');
+        contactForm.reset();
+      } else {
+        alert('❌ Mohon lengkapi form dengan benar:\n\n' + errorMessage);
+      }
+    });
+
+    // Remove error state on input
+    [nameInput, emailInput, messageInput].forEach(input => {
+      input.addEventListener('input', function () {
+        this.classList.remove('border-red-500');
+      });
+    });
+  </script>
+
+</body>
+
+</html>
